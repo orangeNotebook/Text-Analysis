@@ -4,6 +4,10 @@
 
 ## Commands
 
-### npm start
+### npm run build
 
-runs the program
+builds the program
+
+## npm start
+
+starts the program
