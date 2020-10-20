@@ -1,4 +1,9 @@
-const fs = require("fs");
+const fs = require("fs")
+const wordCount = require("./components/WordCount.js")
+const characterCount = require("./components/CharacterCount.js")
+const noSpecialCharacterCount = require("./components/NoSpecialCharacterCount.js")
+  const averageWordLength = require("./components/AverageWordLength.js")
+const topWords = require("./components/TopWords.js")
 
 function getText(){
     return fs
@@ -7,30 +12,17 @@ function getText(){
     .replace("\r", "")
 }
 
-function wordCount(text){
-    return text.split(" ").length
-}
-
-function characterCount(text){
-    return text.length
-}
-
-function noSpecialCharacterCount(text){
-    return text.length - text.replace(/\b[-?(\w+)?]+\b/gi, "").length
-}
-
-function averageWordLength(text){
-    return noSpecialCharacterCount(text) / wordCount(text)
-}
-
 function main(){
     let text = getText()
 
-    console.log(
+                  console.log(
 `Characters:  ${characterCount(text)}
 Non special chars: ${noSpecialCharacterCount(text)}
 Words: ${wordCount(text)}
 Average word length: ${averageWordLength(text)}`)
+console.log(topWords(text))
+
 }
+
 
 main()
