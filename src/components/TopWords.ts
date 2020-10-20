@@ -1,4 +1,4 @@
-export default (text) => {
+export default (text: string) :object => {
     let textArray = text.split(/\s+/);
     let topWordsObj = {};
     for(let i = 0; i < textArray.length; i++){

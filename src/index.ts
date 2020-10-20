@@ -5,14 +5,14 @@ import noSpecialCharacterCount from "./components/NoSpecialCharacterCount";
 import averageWordLength from "./components/AverageWordLength";
 import topWords from "./components/TopWords";
 
-function getText() {
+function getText() :string {
     return fs
     .readFileSync("./text/text.txt")
     .toString()
     .replace("\r", "");
 };
 
-function main(){
+function main() :void {
     let text = getText();
 
     console.log(
