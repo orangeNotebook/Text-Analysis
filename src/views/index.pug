@@ -1,0 +1,12 @@
+html
+  head
+    title= title
+  body
+    h1
+      | Text Analysis
+    form(action='/analysis', method='POST')
+      label(for="text")
+      div
+        textarea(type="text", name="text", id = "text", rows="10", cols="25")
+      div
+        input(type="submit", value="Submit")

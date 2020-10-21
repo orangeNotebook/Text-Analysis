@@ -1,28 +1,24 @@
-import fs from "fs";
-import wordCount from "./components/WordCount";
-import characterCount from "./components/CharacterCount";
-import noSpecialCharacterCount from "./components/NoSpecialCharacterCount";
-import averageWordLength from "./components/AverageWordLength";
-import topWords from "./components/TopWords";
+// import fs from "fs";
+import wordCount from "./services/WordCount";
+import characterCount from "./services/CharacterCount";
+import noSpecialCharacterCount from "./services/NoSpecialCharacterCount";
+import averageWordLength from "./services/AverageWordLength";
+import topWords from "./services/TopWords";
 
-function getText() :string {
-    return fs
-    .readFileSync("./text/text.txt")
-    .toString()
-    .replace("\r", "");
-};
+// function getText() :string {
+//     return fs
+//     .readFileSync("./text/text.txt")
+//     .toString()
+//     .replace("\r", "");
+// };
 
-function main() :void {
-    let text = getText();
+export default (text: string) :string => {
 
-    console.log(
+    return (
 `Characters:  ${characterCount(text)}
 Non special chars: ${noSpecialCharacterCount(text)}
 Words: ${wordCount(text)}
-Average word length: ${averageWordLength(text)}`);
-    console.log(topWords(text));
+Average word length: ${averageWordLength(text)}
+Top words: ${JSON.stringify(topWords(text))}`)
 
 };
-
-
-main();
