@@ -8,6 +8,6 @@
 
 builds the program
 
-## npm start
+## npm run dev
 
-starts the program
+builds the program, copies views and starts the server
