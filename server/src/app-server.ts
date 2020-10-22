@@ -1,9 +1,9 @@
-const express = require("express");
+import express, {Request, Response} from "express"
 import * as path from "path";
 import analysis from "./index"
 
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.use(
   express.urlencoded({
@@ -11,11 +11,11 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) :void => {
     res.render("index");
 });
 
-app.post("/analysis", (req, res) => {
+app.post("/analysis", (req: Request, res: Response) :void => {
     let analysedText = analysis((req.body.text).toLowerCase());
     res.send(analysedText)
 });
