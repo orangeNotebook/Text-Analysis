@@ -12,13 +12,15 @@ import topWords from "./services/TopWords";
 //     .replace("\r", "");
 // };
 
-export default (text: string) :string => {
+export default (text: string) :object => {
 
-    return (
-`Characters:  ${characterCount(text)}
-Non special chars: ${noSpecialCharacterCount(text)}
-Words: ${wordCount(text)}
-Average word length: ${averageWordLength(text)}
-Top words: ${JSON.stringify(topWords(text))}`)
+    return ({
+        characters: characterCount(text), 
+        noSpceialCharacters: noSpecialCharacterCount(text),
+        words: wordCount(text),
+        averageWordLength: averageWordLength(text)
+        })
+
+
 
 };

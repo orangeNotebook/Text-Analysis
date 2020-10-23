@@ -5,11 +5,8 @@ import analysis from "./index"
 const app = express();
 const port = 4000;
 
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req: Request, res: Response) :void => {
     res.render("index");
@@ -20,7 +17,8 @@ app.get("/express-server", (req: Request, res: Response) :void =>{
 })
 
 app.post("/analysis", (req: Request, res: Response) :void => {
-    let analysedText = analysis((req.body.text).toLowerCase());
+    console.log("recieved: " + req.body.name)
+    let analysedText = analysis((req.body.name).toLowerCase());
     res.send(analysedText)
 });
 
