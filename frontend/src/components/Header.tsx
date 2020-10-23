@@ -7,8 +7,6 @@ const StyledH1 = styled.h1`
 `
 
 interface IHeaderProps {
-  // name: string
-  // age?: number
   children: React.ReactNode
 }
 

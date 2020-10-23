@@ -1,44 +1,27 @@
-import React from "react"
-import styled from "styled-components"
+import React, { Component } from "react"
 
-const StyledH1 = styled.h1`
-  color: palevioletred;
-  font-size: 80px;
-`
+class TextBox extends Component {
+  state = {
+    name: ""
+  };
 
-// interface IHeaderProps {
-//   // name: string
-//   // age?: number
-//   children: React.ReactNode
-// }
+  handleInput = event => {
+    this.setState({ name: event.target.value });
+  };
 
+  sendText = () => {
+    console.log(this.state.name);
+    
+  };
 
-  function handleClick() {
-    console.log("Sent");
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer my-token",
-        "My-Custom-Header": "foobar",
-      },
-      body: JSON.stringify({ title: "React POST Request Example" }),
-    };
-    fetch("/analysis", { method: "POST" });
+  render() {
+    return (
+      <div>
+      <input onChange={this.handleInput} placeholder="Text to analyse" />
+      <button onClick={this.sendText}>Analyse me!</button>
+      </div>
+    );
   }
-
-
-export default function TextBox() {
-  return (
-    <form>
-    <label>
-     <textarea id="text" name="text"/>
-    </label>
-    <div>
-    <button type="button" onClick={handleClick}>
-        Analyse my text!
-      </button>
-   </div>
-   </form>
-  )
 }
+
+export default TextBox;

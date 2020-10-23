@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from "react";
-import logo from './logo.svg';
-import './App.css';
-import Header from "./components/Header"
+import React, { Component } from "react";
 import TextBox from "./components/TextBox"
+import Header from "./components/Header"
+
+class App extends Component {
 
 
-
-function App() {
-  return (
-    <div>    
-      <Header>Word Analysis</Header>
-      <TextBox/>
-      
-    </div>
-
-  );
+  render() {
+    return (
+      <div>
+        <Header>Text Analysis</Header>
+        <TextBox/>
+      </div>
+    );
+  }
 }
 
 export default App;

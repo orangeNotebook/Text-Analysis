@@ -15,6 +15,10 @@ app.get("/", (req: Request, res: Response) :void => {
     res.render("index");
 });
 
+app.get("/express-server", (req: Request, res: Response) :void =>{
+  res.send( { express: 'Express server connected to react' })
+})
+
 app.post("/analysis", (req: Request, res: Response) :void => {
     let analysedText = analysis((req.body.text).toLowerCase());
     res.send(analysedText)
