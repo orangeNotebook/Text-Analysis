@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./App.css";
 import TextBox from "./components/TextBox"
 import Header from "./components/Header"
 
@@ -7,7 +8,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
         <Header>Text Analysis</Header>
         <TextBox/>
       </div>

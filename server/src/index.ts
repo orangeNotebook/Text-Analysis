@@ -16,11 +16,10 @@ export default (text: string) :object => {
 
     return ({
         characters: characterCount(text), 
-        noSpceialCharacters: noSpecialCharacterCount(text),
+        noSpecialCharacters: noSpecialCharacterCount(text),
         words: wordCount(text),
         averageWordLength: averageWordLength(text)
         })
-
 
 
 };

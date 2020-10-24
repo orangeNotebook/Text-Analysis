@@ -1,13 +1,52 @@
+import { render } from "@testing-library/react";
 import React, { Component } from "react"
+import AnalysedText from "./AnalysedText"
+
+import styled from "styled-components";
+
+const StyledTextBox = styled.textarea`
+  display: block;
+  text-align:center;
+  width:85%;
+  height:150px;
+  margin: auto;
+  border-width:3px;
+  border-style:solid;
+  border-color:#5C62A4;
+  border-radius:20px;
+  background-color:#ffffff;
+
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 15px;
+  font-weight: 1000;
+  color: palevioletred;
+`;
 
 class TextBox extends Component {
   state = {
-    name: ""
+    name: "",
+    characters: 0,
+    noSpecialCharacters: 0,
+    words: 0,
+    averageWordLength: 0 
   };
 
-  handleInput = event => {
-    this.setState({ name: event.target.value });
-  };
+  setStateToText = (text) => {
+    return new Promise((resolve, reject) => {
+        resolve(this.setState({ name: text }))
+      }
+    )}
+
+    setAnalysedText = (body) => {
+     
+          (this.setState({ 
+            characters: body.characters,
+            noSpecialCharacters: body.noSpecialCharacters,
+            words: body.words,
+            averageWordLength: body.averageWordLength
+           }))
+    }
+      
 
   sendText = () => {
     let text = JSON.stringify(this.state)
@@ -18,23 +57,26 @@ class TextBox extends Component {
       headers: {"Content-Type": "application/json"}
     };
     fetch("/analysis", requestOptions)
-    .then(function(response){
+    .then((response) => {
       return response.json()
-    }).then(function(body){
+    }).then((body)=> {
       console.log(body);
+      this.setAnalysedText(body)
     });;
     
   };
 
+  handleInput = (event) => {
+    this.setStateToText(event.target.value).then(this.sendText);
+  };
 
   render() {
     return (
       <div>
-      <input onChange={this.handleInput} placeholder="Text to analyse" />
-      <button onClick={this.sendText}>Analyse me!</button>
-      <div>
-      <p>Characters: </p>
-      </div>
+        <StyledTextBox onChange={this.handleInput} placeholder="Text to analyse" />
+        <div>
+         <AnalysedText characters={this.state.characters} noSpceialCharacters={this.state.noSpecialCharacters} words={this.state.words} averageWordLength={this.state.averageWordLength}/>
+       </div>
       </div>
     );
   }
