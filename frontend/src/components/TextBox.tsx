@@ -7,14 +7,17 @@ import styled from "styled-components";
 const StyledTextBox = styled.textarea`
   display: block;
   text-align:center;
-  width:85%;
-  height:150px;
-  margin: auto;
+  width:74%;
+  height: 400px;
+  margin: auto 5px auto 80px;
+  padding: 10px;
   border-width:3px;
   border-style:solid;
   border-color:#5C62A4;
   border-radius:20px;
   background-color:#ffffff;
+
+  float:left;
 
   font-family: Tahoma, Geneva, sans-serif;
   font-size: 15px;

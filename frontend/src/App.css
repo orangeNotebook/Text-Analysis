@@ -1,11 +1,20 @@
 .App {
   text-align: center;
+}
+
+.MainBorder {
   background-color: #e5f0f5;
   border-width: 5px;
   border-style: solid;
   border-color: #5c62a4;
   border-radius: 20px;
   margin: 80px;
+  width: auto;
+  height: 800px;
+}
+
+.smallH2 {
+  font-size: 20px;
 }
 
 .App-logo {
