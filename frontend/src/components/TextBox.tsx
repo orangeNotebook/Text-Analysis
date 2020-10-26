@@ -8,7 +8,7 @@ const StyledTextBox = styled.textarea`
   display: block;
   text-align:center;
   width:74%;
-  height: 400px;
+  height: 485px;
   margin: auto 5px auto 80px;
   padding: 10px;
   border-width:3px;
@@ -53,7 +53,6 @@ class TextBox extends Component {
 
   sendText = () => {
     let text = JSON.stringify(this.state)
-    console.log("sent: " + text);
     const requestOptions = {
       method: "POST",
       body: text,
@@ -63,7 +62,6 @@ class TextBox extends Component {
     .then((response) => {
       return response.json()
     }).then((body)=> {
-      console.log(body);
       this.setAnalysedText(body)
     });;
     

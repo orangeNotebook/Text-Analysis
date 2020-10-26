@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import TextBox from "./components/TextBox"
 import Header from "./components/Header"
-import MainBorder from "./components/MainBorder"
+
 
 class App extends Component {
 

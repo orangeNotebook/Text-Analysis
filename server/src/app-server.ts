@@ -17,7 +17,6 @@ app.get("/express-server", (req: Request, res: Response) :void =>{
 })
 
 app.post("/analysis", (req: Request, res: Response) :void => {
-    console.log("recieved: " + req.body.name)
     let analysedText = analysis((req.body.name).toLowerCase());
     res.send(analysedText)
 });
