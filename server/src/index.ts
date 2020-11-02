@@ -4,6 +4,7 @@ import characterCount from "./services/CharacterCount";
 import noSpecialCharacterCount from "./services/NoSpecialCharacterCount";
 import averageWordLength from "./services/AverageWordLength";
 import topWords from "./services/TopWords";
+import readingAge from "./services/ReadingAge";
 
 // function getText() :string {
 //     return fs
@@ -18,7 +19,8 @@ export default (text: string) :object => {
         characters: characterCount(text), 
         noSpecialCharacters: noSpecialCharacterCount(text),
         words: wordCount(text),
-        averageWordLength: averageWordLength(text)
+        averageWordLength: averageWordLength(text),
+        readingAge: readingAge(text)
         })
 
 

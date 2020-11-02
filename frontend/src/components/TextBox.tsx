@@ -30,7 +30,8 @@ class TextBox extends Component {
     characters: 0,
     noSpecialCharacters: 0,
     words: 0,
-    averageWordLength: 0 
+    averageWordLength: 0,
+    readingAge: 0
   };
 
   setStateToText = (text) => {
@@ -45,7 +46,8 @@ class TextBox extends Component {
             characters: body.characters,
             noSpecialCharacters: body.noSpecialCharacters,
             words: body.words,
-            averageWordLength: body.averageWordLength
+            averageWordLength: body.averageWordLength,
+            readingAge: body.readingAge
            }))
     }
       
@@ -75,7 +77,7 @@ class TextBox extends Component {
       <div>
         <StyledTextBox onChange={this.handleInput} placeholder="Text to analyse" />
         <div>
-         <AnalysedText characters={this.state.characters} noSpceialCharacters={this.state.noSpecialCharacters} words={this.state.words} averageWordLength={this.state.averageWordLength}/>
+         <AnalysedText characters={this.state.characters} noSpceialCharacters={this.state.noSpecialCharacters} words={this.state.words} averageWordLength={this.state.averageWordLength} readingAge={this.state.readingAge}/>
        </div>
       </div>
     );

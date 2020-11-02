@@ -25,7 +25,8 @@ interface IAnalysedText {
   characters: number,
   noSpceialCharacters: number,
   words: number,
-  averageWordLength: number
+  averageWordLength: number,
+  readingAge: number
 }
 
 const Analysis: React.FC<IAnalysedText> = (props) => {
@@ -39,6 +40,7 @@ const Analysis: React.FC<IAnalysedText> = (props) => {
       <p>Non-special characters: {props.noSpceialCharacters}</p>
       <p>Words: {props.words}</p>
       <p>Average word length: {props.averageWordLength}</p>
+      <p>Reading age: {props.readingAge}</p>
     </StyledAnalysedText>
     </div>
   );
